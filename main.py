@@ -6,8 +6,15 @@ from itertools import repeat
 import pprint
 import collections
 
-new_excel_data_rose = pandas.read_excel('wine3.xlsx', sheet_name ='Лист1', usecols = ["Категория", "Название", "Сорт", "Цена", "Картинка", "Акция"])
-new_excel_data_rose = new_excel_data_rose.fillna('') 
+new_excel_data_rose = pandas.read_excel('wine3.xlsx', sheet_name='Лист1',
+                                        usecols=[
+                                            "Категория",
+                                            "Название",
+                                            "Сорт",
+                                            "Цена",
+                                            "Картинка",
+                                            "Акция"])
+new_excel_data_rose = new_excel_data_rose.fillna('')
 
 drinks = new_excel_data_rose.to_dict('record')
 
@@ -35,7 +42,8 @@ env = Environment(
 
 template = env.get_template('template.html')
 
-rendered_page = template.render(total_alcohol=total_alcohol, category=category, our_age=age)
+rendered_page = template.render(total_alcohol=total_alcohol,
+                                category=category, our_age=age)
 
 with open('index.html', 'w', encoding="utf8") as file:
     file.write(rendered_page)
