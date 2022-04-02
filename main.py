@@ -1,10 +1,10 @@
-from http.server import HTTPServer, SimpleHTTPRequestHandler
-from jinja2 import Environment, FileSystemLoader, select_autoescape
-import datetime
-import pandas
-from itertools import repeat
-import pprint
 import collections
+import datetime
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+from itertools import repeat
+
+import pandas
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 new_excel_data_rose = pandas.read_excel('wine3.xlsx', sheet_name='Лист1',
                                         usecols=[
